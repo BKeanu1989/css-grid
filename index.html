@@ -14,14 +14,18 @@
     padding: 0;
   }
 
+@supports (grid-column-gap: 10px) {
   .container {
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     /*grid-template-columns: minmax(100px, 200px) auto 100px;*/
-    grid-template-rows: auto;
+    grid-template-rows: 100px auto 100px;
     /*grid-template-rows: 150px auto 300px;*/
-    grid-column-gap: 1px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
     background-color: black;
+    /*justify-content: center;*/
     grid-template-areas:
   "header header header header header"
   "left-sidebar main main main right-sidebar"
@@ -31,6 +35,10 @@
   nav {
     background-color: green;
     grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
   }
 
   .left-side {
@@ -41,6 +49,12 @@
   main {
     background-color: blue;
     grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-row: auto;
+    grid-template-areas:
+    "subheader subheader subheader"
+    "submain submain submain"
   }
 
   .right-side {
@@ -51,6 +65,14 @@
   footer {
     background-color: red;
     grid-area: footer;
+  }
+
+  .subheader {
+    grid-area: subheader;
+  }
+
+  .submain {
+    grid-area: submain;
   }
 
   @media (max-width: 800px) {
@@ -67,14 +89,16 @@
       display: none;
     }
   }
+}
+
 </style>
 <body>
   <div class="container">
-    <nav>NAV</nav>
+    <nav><div class="test">test</div></nav>
     <div class="left-side">LEFT COLUMN</div>
     <main>
-      MAIN
-      <p>hello</p>
+      <div class="subheader">Subheader</div>
+      <div class="submain">submain</div>
     </main>
     <div class="right-side">RIGHT COLUMN</div>
     <footer>FOOTER</footer>
