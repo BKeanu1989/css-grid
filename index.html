@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CSS - Grid</title>
 </head>
+<link rel="stylesheet" href="bootstrap.css">
+
 <style>
 
   html, body {
@@ -15,6 +17,32 @@
   }
 
 @supports (grid-column-gap: 10px) {
+
+		.row {
+		  display:grid;
+			all: unset;
+		}
+
+		.col-md-3 {
+			all: unset;
+		}
+
+		.col-md-9 {
+			all: unset;
+		}
+
+    .container, .col-md-12 {
+      all: unset;
+    }
+
+    .container::before,.row::before, .col-md-3::before, .col-md-9::before, .col-md-12::before {
+			all: unset;
+		}
+
+    .container::after,.row::after, .col-md-3::after, .col-md-9::after. .col-md-12::after {
+			all: unset;
+		}
+
   .container {
     min-height: 100vh;
     display: grid;
@@ -94,6 +122,56 @@
 </style>
 <body>
   <div class="container">
+		<div class="row">
+      <!-- <div class="col-md-3 left-content"> -->
+      <nav>
+        <div class="test">test</div>
+      </nav>
+			<div class="col-md-3 left-side">
+        couldnt be working
+  			</div>
+      <!-- <div class="col-md-9 right-content"> -->
+			<div class="col-md-9 right-side">
+				<p>col md 9</p>
+        <main>
+          <div class="subheader">Subheader</div>
+          <div class="submain">Submain</div>
+        </main>
+        <footer>Footer</footer>
+			</div>
+
+		</div>
+    <!-- <nav><div class="test">test</div></nav> -->
+    <nav>
+      <div class="row">
+        <div class="col-md-3">
+          NAV
+        </div>
+      </div>
+    </nav>
+    <div class="left-side">LEFT COLUMN</div>
+    <main>
+      <div class="subheader">Subheader</div>
+      <div class="submain">submain</div>
+    </main>
+    <div class="right-side">RIGHT COLUMN</div>
+    <footer>FOOTER</footer>
+	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 left-side">
+        couldnt be working
+      </div>
+      <div class="col-md-9">
+        <main>
+          <div class="subheader">Subheader</div>
+          <div class="submain">Submain</div>
+        </main>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="test"></div>
     <nav><div class="test">test</div></nav>
     <div class="left-side">LEFT COLUMN</div>
     <main>
